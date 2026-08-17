@@ -1,0 +1,11 @@
+{
+  "name": "STRIDEMETRICS - AI Health Coach",
+  "description": "STRIDEMETRICS: Your AI health and fitness coach for custom workouts, meal analysis, real-time advice, and habit tracking.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

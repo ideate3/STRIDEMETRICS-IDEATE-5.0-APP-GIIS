@@ -1,0 +1,22 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // IDOR & RBAC Protection: Users can only read and write their own documents
+    // Administrators (request.auth.token.admin == true) have administrative audit access
+    match /users/{userId} {
+      allow read, write: if request.auth != null && (
+        request.auth.uid == userId || 
+        request.auth.token.role == 'admin' || 
+        request.auth.token.admin == true
+      );
+    }
+    
+    // Scoped subcollections (metrics, logs, workouts) protected against IDOR
+    match /users/{userId}/{allSubcollections=**} {
+      allow read, write: if request.auth != null && (
+        request.auth.uid == userId || 
+        request.auth.token.role == 'admin'
+      );
+    }
+  }
+}

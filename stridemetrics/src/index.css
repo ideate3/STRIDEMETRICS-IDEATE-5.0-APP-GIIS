@@ -1,0 +1,312 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    background-color: #080a0e;
+    color: #f4f4f5;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "SF Pro", "Plus Jakarta Sans", system-ui, sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: -0.01em;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  button, a, input, select, textarea {
+    touch-action: manipulation;
+  }
+
+  /* Prevent automatic zoom on input focus in mobile browsers */
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+
+  @media (min-width: 640px) {
+    input, select, textarea {
+      font-size: inherit !important;
+    }
+  }
+}
+
+/* Utilities for hiding scrollbars on mobile while keeping scroll functionality */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Safe area padding utilities for smartphones with notches / home indicators */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 16px);
+}
+.pt-safe {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+.font-display {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "SF Pro", sans-serif;
+  letter-spacing: -0.022em;
+}
+
+.font-mono-code {
+  font-family: "SF Mono", "JetBrains Mono", ui-monospace, monospace;
+}
+
+/* Liquid Glass & Squircle Utilities */
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
+}
+
+.liquid-glass-selected {
+  background: rgba(16, 185, 129, 0.12);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Light theme overrides ensuring crisp black/dark slate text on white & light backgrounds */
+.light,
+html.light,
+html.light body,
+html.light #root {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+.light .liquid-glass,
+html.light .liquid-glass {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05), inset 0 1px 0 0 rgba(255, 255, 255, 1) !important;
+  color: #0f172a !important;
+}
+
+/* Hardcoded dark cards converted to crisp light cards in light mode */
+.light .squircle-card,
+html.light .squircle-card,
+.light [class*="bg-[#0"], html.light [class*="bg-[#0"],
+.light [class*="bg-[#1"], html.light [class*="bg-[#1"],
+.light [class*="bg-[#2"], html.light [class*="bg-[#2"],
+.light .bg-zinc-900, html.light .bg-zinc-900,
+.light .bg-zinc-950, html.light .bg-zinc-950,
+.light .bg-slate-900, html.light .bg-slate-900,
+.light .bg-slate-950, html.light .bg-slate-950 {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+}
+
+.light [class*="bg-white/5"], html.light [class*="bg-white/5"],
+.light [class*="bg-white/10"], html.light [class*="bg-white/10"],
+.light [class*="bg-white/[0.05]"], html.light [class*="bg-white/[0.05]"],
+.light [class*="bg-white/[0.08]"], html.light [class*="bg-white/[0.08]"],
+.light [class*="bg-zinc-800"], html.light [class*="bg-zinc-800"],
+.light [class*="bg-slate-800"], html.light [class*="bg-slate-800"] {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Exhaustive Text color adaptations for light mode */
+.light [class*="text-white"], html.light [class*="text-white"],
+.light [class*="text-zinc-50"], html.light [class*="text-zinc-50"],
+.light [class*="text-zinc-100"], html.light [class*="text-zinc-100"],
+.light [class*="text-zinc-200"], html.light [class*="text-zinc-200"],
+.light [class*="text-zinc-300"], html.light [class*="text-zinc-300"],
+.light [class*="text-slate-50"], html.light [class*="text-slate-50"],
+.light [class*="text-slate-100"], html.light [class*="text-slate-100"],
+.light [class*="text-slate-200"], html.light [class*="text-slate-200"],
+.light [class*="text-slate-300"], html.light [class*="text-slate-300"] {
+  color: #0f172a !important;
+}
+
+.light [class*="text-zinc-400"], html.light [class*="text-zinc-400"],
+.light [class*="text-zinc-500"], html.light [class*="text-zinc-500"],
+.light [class*="text-slate-400"], html.light [class*="text-slate-400"],
+.light [class*="text-slate-500"], html.light [class*="text-slate-500"] {
+  color: #334155 !important;
+}
+
+/* Vibrant Accent Text adaptation in light mode for WCAG AA readability */
+.light .text-emerald-400, html.light .text-emerald-400,
+.light .text-emerald-300, html.light .text-emerald-300 {
+  color: #059669 !important;
+}
+
+.light .text-rose-400, html.light .text-rose-400,
+.light .text-rose-300, html.light .text-rose-300 {
+  color: #e11d48 !important;
+}
+
+.light .text-amber-400, html.light .text-amber-400,
+.light .text-amber-300, html.light .text-amber-300 {
+  color: #d97706 !important;
+}
+
+.light .text-blue-400, html.light .text-blue-400,
+.light .text-blue-300, html.light .text-blue-300 {
+  color: #2563eb !important;
+}
+
+.light .text-teal-400, html.light .text-teal-400 {
+  color: #0d9488 !important;
+}
+
+.light .text-cyan-400, html.light .text-cyan-400 {
+  color: #0891b2 !important;
+}
+
+/* User message bubbles in chat - force crisp dark text in both dark and light modes */
+.user-message-bubble,
+.user-message-bubble *,
+.light .user-message-bubble,
+html.light .user-message-bubble,
+.light .user-message-bubble *,
+html.light .user-message-bubble * {
+  color: #000000 !important;
+}
+
+.user-message-bubble .msg-timestamp,
+.light .user-message-bubble .msg-timestamp,
+html.light .user-message-bubble .msg-timestamp {
+  color: rgba(0, 0, 0, 0.75) !important;
+}
+
+/* Preserve crisp white text on solid buttons & badges */
+.light .bg-emerald-500:not(.user-message-bubble), html.light .bg-emerald-500:not(.user-message-bubble),
+.light .bg-emerald-600, html.light .bg-emerald-600,
+.light .bg-rose-500, html.light .bg-rose-500,
+.light .bg-blue-500, html.light .bg-blue-500,
+.light .bg-black, html.light .bg-black,
+.light .bg-zinc-900, html.light .bg-zinc-900,
+.light .keep-white, html.light .keep-white {
+  color: #ffffff !important;
+}
+
+.light .bg-emerald-500:not(.user-message-bubble) *:not(.user-message-bubble *), html.light .bg-emerald-500:not(.user-message-bubble) *:not(.user-message-bubble *),
+.light .bg-emerald-600 *, html.light .bg-emerald-600 *,
+.light .bg-rose-500 *, html.light .bg-rose-500 *,
+.light .bg-blue-500 *, html.light .bg-blue-500 *,
+.light .bg-black *, html.light .bg-black *,
+.light .bg-zinc-900 *, html.light .bg-zinc-900 *,
+.light .keep-white *, html.light .keep-white * {
+  color: #ffffff !important;
+}
+
+.light .text-slate-950, html.light .text-slate-950,
+.light .text-black, html.light .text-black,
+.light .bg-emerald-500 .text-slate-950, html.light .bg-emerald-500 .text-slate-950,
+.light .bg-emerald-500 .text-black, html.light .bg-emerald-500 .text-black,
+.bg-emerald-500 .text-black,
+.bg-emerald-500.text-black {
+  color: #000000 !important;
+}
+
+.light input, html.light input,
+.light textarea, html.light textarea,
+.light select, html.light select {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+.light option, html.light option {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+}
+
+.light input::placeholder, html.light input::placeholder,
+.light textarea::placeholder, html.light textarea::placeholder {
+  color: #64748b !important;
+}
+
+/* Backdrop & modal overlays */
+.light .fixed.inset-0.bg-black\/80, html.light .fixed.inset-0.bg-black\/80,
+.light .fixed.inset-0.bg-black\/70, html.light .fixed.inset-0.bg-black\/70,
+.light .fixed.inset-0.bg-black\/85, html.light .fixed.inset-0.bg-black\/85 {
+  background-color: rgba(15, 23, 42, 0.55) !important;
+}
+
+/* Recharts chart adaptations */
+.light .recharts-default-tooltip, html.light .recharts-default-tooltip {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  color: #0f172a !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1) !important;
+}
+
+.light .recharts-tooltip-item, html.light .recharts-tooltip-item,
+.light .recharts-tooltip-item-name, html.light .recharts-tooltip-item-name,
+.light .recharts-tooltip-item-value, html.light .recharts-tooltip-value,
+.light .recharts-tooltip-label, html.light .recharts-tooltip-label {
+  color: #0f172a !important;
+}
+
+.light .recharts-cartesian-axis-tick-value, html.light .recharts-cartesian-axis-tick-value {
+  fill: #475569 !important;
+}
+
+.squircle-card {
+  border-radius: 24px;
+}
+
+.squircle-btn {
+  border-radius: 16px;
+}
+
+/* Custom hyper-minimal scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Audio equalizer bars animation in emerald theme */
+@keyframes soundBar {
+  0%, 100% {
+    height: 4px;
+  }
+  50% {
+    height: 16px;
+  }
+}
+
+.sound-bar {
+  display: inline-block;
+  width: 3px;
+  background-color: #10b981;
+  border-radius: 2px;
+  animation: soundBar 1s infinite ease-in-out;
+}
+
+.sound-bar-1 { animation-delay: 0.1s; }
+.sound-bar-2 { animation-delay: 0.3s; }
+.sound-bar-3 { animation-delay: 0.2s; }
+.sound-bar-4 { animation-delay: 0.4s; }
+
+/* Focus Mode targeted element style */
+div#root:nth-of-type(1) > div:nth-of-type(1) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(39) > div:nth-of-type(1) > div:nth-of-type(2) {
+  color: #000000 !important;
+}
+
