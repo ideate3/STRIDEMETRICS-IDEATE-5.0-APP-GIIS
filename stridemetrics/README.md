@@ -13,7 +13,7 @@ Welcome to the **Fitness & Health Application** codebase! This comprehensive web
 Platform environment secrets are stored securely in the Cloud environment and are never embedded in the exported source code or committed to public version control. Before running the application locally or deploying it on your own server, you must provide your own Gemini API key in a local `.env` file.
 
 start from github guide:
-bash > la > cd "stridemetrics" > ls > if you see package.json > npm install> npm run dev
+bash > ls > cd "stridemetrics" > ls > if you see package.json > npm install> npm run dev
 ---
 
 ** major security and safety protocols are added to this app which include:**
