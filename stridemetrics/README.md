@@ -7,13 +7,19 @@ Welcome to the **Fitness & Health Application** codebase! This comprehensive web
 ## 🔒 Important Security Notice: Exported API Keys
 
 > **"does it come with the API keys?"**
-> **No.** When you or download this application from or GitHub, **private API keys and secrets (such as `GEMINI_API_KEY`) are deliberately omitted for security reasons**. 
+> **No.** When you or download this application from or GitHub, **private API keys and secrets (such as `GEMINI_API_KEY`) are deliberately omitted for security reasons**.
+> thereby, after launching the app, as soon as you start chatting, it will prompt you to give the api key first. after that is done, the app is expected to run smoothly.. in case it does not prompt and still show an error, consider rechecking the api key or the network connection. 
 
 Platform environment secrets are stored securely in the Cloud environment and are never embedded in the exported source code or committed to public version control. Before running the application locally or deploying it on your own server, you must provide your own Gemini API key in a local `.env` file.
 
+start from github guide:
+bash > la > cd "stridemetrics" > ls > if you see package.json > npm install> npm run dev
 ---
 
-## 🚀 Quick Start Guide
+** major security and safety protocols are added to this app which include:**
+## TLS, CSP, CORS, CSRF, XSS, SQL injection, IDOR protection, rate limiting, forced https. 
+
+## 🚀 Quick Start Guide (local)
 
 Follow these steps to run the application on your local machine:
 
