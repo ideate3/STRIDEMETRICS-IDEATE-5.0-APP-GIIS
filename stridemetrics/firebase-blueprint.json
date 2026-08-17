@@ -1,0 +1,21 @@
+{
+  "entities": {
+    "users": {
+      "title": "User Account Profile",
+      "description": "Crucial user account profile, authentication metadata, and API key mode settings",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "authProvider": { "type": "string" },
+        "apiKeyOption": { "type": "string", "enum": ["default", "custom"] },
+        "customApiKey": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["uid", "email"]
+    }
+  }
+}
